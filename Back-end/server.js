@@ -1,9 +1,19 @@
-const Express = require("express");
+const express = require("express");
 const cors = require("cors");
-import AuthorController from "./controllers/AuthorController";
+const mongo = require("mongoose");
+const AuthorController = require("../Back-end/Controllers/AuthorController");
+const BookController = require("./Controllers/BookController");
+const EraController = require("./Controllers/EraController");
 
-const App = Express();
+mongo.connect("mongodb://localhost:27017/dbOdmaturuj")
+    .then(() => console.log("connected to mongo database"))
+    .catch(err => console.error("error occured while connecting to mongo database: ", err));
+
+const App = express();
+
 App.use(cors());
-App.use("/haha", AuthorController);
+App.use("/authors",AuthorController);
+App.use("/books", BookController);
+App.use("/eras", EraController);
 
 App.listen(3000, () => console.log("hello on port: ", 3000));
