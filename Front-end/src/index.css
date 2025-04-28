@@ -26,7 +26,7 @@ body.light-mode {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: repeating-linear-gradient(135deg, #dbeafe, #dbeafe 20px, #bfdbfe 20px, #bfdbfe 40px);
+  background: repeating-linear-gradient(135deg, #dbeafe, #dbeafe 100px, #bfdbfe 500px, #bfdbfe 200px);
   background-size: cover;
   background-attachment: fixed;
   background-repeat: repeat;
@@ -45,7 +45,7 @@ body.dark-mode {
   --shadow: 0 4px 30px rgba(255, 255, 255, 0.05);
   --blur: blur(12px);
 
-  background: repeating-linear-gradient(135deg, #1f1f1f, #1f1f1f 20px, #2c2c2c 20px, #2c2c2c 40px);
+  background: repeating-linear-gradient(135deg, #1f1f1f, #1f1f1f 100px, #2c2c2c 500px, #2c2c2c 200px);
     background-size: cover;
   background-attachment: fixed;
   background-repeat: repeat;

@@ -1,8 +1,12 @@
 import { Route, Routes } from "react-router-dom";
+import Home from "./components/home/Home";
+import About from "./components/about/About";
+import KnowledgeView from "./components/Knowledge/KnowledgeView";
 
 export const AppRoutes = (
     <Route>
-        <Route path="/home" index element={<div>home</div>} />
-        <Route path="/about" element={<div>o apce</div>} />
+        <Route path="/home" index element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/knowledge" element={<KnowledgeView />}/>
     </Route>
 );

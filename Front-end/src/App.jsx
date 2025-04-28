@@ -23,7 +23,8 @@ export default function App() {
 
   const NavbarData = [
     { name: "Domů", path: "/home" },
-    { name: "O aplikaci", path: "/about" }
+    { name: "O aplikaci", path: "/about" },
+    { name: "Znalosti", path: "/knowledge" }
   ];
 
   return (
