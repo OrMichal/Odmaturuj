@@ -1,0 +1,65 @@
+[{
+  "_id": {
+    "$oid": "680cae2100ade0b1ba1c729b"
+  },
+  "id": 1,
+  "bookname": "Písně Kosmické",
+  "author_ids": [
+    1
+  ],
+  "release_year": 1878,
+  "type": "básnická zbírka",
+  "motive": "kosmos, rozvoj přírodních věd a vztahy mezi lidmi a pravidly ve vesmíru"
+},
+{
+  "_id": {
+    "$oid": "680cb59e00ade0b1ba1c72a0"
+  },
+  "id": 2,
+  "bookname": "Knihy veršů",
+  "author_ids": [
+    1
+  ],
+  "release_year": 1868,
+  "type": "básnická zbírka",
+  "motive": "pesimismus"
+},
+{
+  "_id": {
+    "$oid": "680cb5eb00ade0b1ba1c72a1"
+  },
+  "id": 3,
+  "bookname": "Hřbitovní kvítí",
+  "author_ids": [
+    1
+  ],
+  "release_year": 1857,
+  "type": "básnická zbírka",
+  "motive": "pesimismus, pocit beznaděje"
+},
+{
+  "_id": {
+    "$oid": "680cc2f300ade0b1ba1c72ad"
+  },
+  "id": 4,
+  "bookname": "Muzikantská liduška",
+  "author_ids": [
+    2
+  ],
+  "release_year": 1861,
+  "type": "próza",
+  "motive": "zakázaná láska na vesnici"
+},
+{
+  "_id": {
+    "$oid": "680cc34600ade0b1ba1c72ae"
+  },
+  "id": 5,
+  "bookname": "Večerní písně",
+  "author_ids": [
+    2
+  ],
+  "release_year": 1859,
+  "type": "básnická zbírka",
+  "motive": "optimismus, radost"
+}]

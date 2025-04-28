@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "680cacd200ade0b1ba1c7298"
+  },
+  "id": 1,
+  "firstname": "Jan",
+  "middlename": null,
+  "lastname": "Neruda",
+  "birth_date": "18340709",
+  "death_date": "18910822",
+  "era_ids": [
+    1
+  ],
+  "literature_movement_ids": null
+},
+{
+  "_id": {
+    "$oid": "680cbf0800ade0b1ba1c72ab"
+  },
+  "id": 2,
+  "firstname": "Vítězslav",
+  "middlename": null,
+  "lastname": "Hálek",
+  "birth_date": "18350405",
+  "death_date": "18741008",
+  "era_ids": [
+    1
+  ],
+  "literature_movement_ids": null
+}]

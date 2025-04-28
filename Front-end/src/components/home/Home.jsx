@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
 
-export default function Home(){
-    return(
-        <div>
-            <p>Odmaturuj</p>
-            <p>Vítejte na stránce, díky které odmaturujete s lehkostí</p>
-            <Link to={"/study"}>
-                <button>Začít se učit</button>
+export default function Home() {
+    return (
+        <div className="home-container">
+            <h1>Odmaturuj</h1>
+            <p>Vítejte na stránce, díky které odmaturujete s lehkostí.</p>
+            <Link to="/knowledge" className="start-button">
+                Začít se učit
             </Link>
         </div>
     );

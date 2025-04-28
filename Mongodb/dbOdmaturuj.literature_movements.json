@@ -1,0 +1,10 @@
+[{
+  "_id": {
+    "$oid": "680cab6700ade0b1ba1c7295"
+  },
+  "id": 1,
+  "name": "Expresionismus",
+  "description": "Umělecký směr zdůrazňující subjektivní prožitek a expresivní vyjádření emocí",
+  "start": "1900",
+  "end": 1930
+}]

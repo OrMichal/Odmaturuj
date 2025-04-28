@@ -12,7 +12,11 @@ export default function ThemeToggle({action}) {
     };
 
     return (
-        <button onClick={() => {action(); toggleDarkMode();}} className="theme-toggle-btn" aria-label="Toggle Theme">
+        <button 
+            onClick={() => {action(); toggleDarkMode();}} 
+            className="theme-toggle-btn" 
+            aria-label="Toggle Theme"
+        >
             {darkMode ? (
                 <svg className="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 3a9 9 0 0 0 0 18c4.97 0 9-4.03 9-9 0-4.97-4.03-9-9-9zm0 16a7 7 0 0 1 0-14v14z" />
