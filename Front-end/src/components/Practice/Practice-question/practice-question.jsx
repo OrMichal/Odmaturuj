@@ -5,6 +5,8 @@ import { useState } from "react";
 
 export default function ({ eraId }) {
     const [correctAnsw, setCorrectAnsw] = useState(null);
+    const [selectedAnswerId, setSelectedAnswerId] = useState(null);
+
     const { data, isLoading, error, refetch } = useQuery({
         queryKey: ["question", eraId],
         queryFn: () =>fetch(`http://localhost:3000/questions/books/${eraId}`)
@@ -67,8 +69,12 @@ export default function ({ eraId }) {
                                 >
                                     <QuestionAnswer 
                                         title={book.bookname} 
-                                        click={() => AnswerSubmitter.mutate({ bookId: book.id, authorId: author.id })}
+                                        click={() => { 
+                                            AnswerSubmitter.mutate({ bookId: book.id, authorId: author.id });
+                                            setSelectedAnswerId(index) 
+                                        }}
                                         answerCorrect={correctAnsw}
+                                        clicked={ selectedAnswerId == index }
                                     />
                                 </div>
                             ))}

@@ -1,10 +1,10 @@
 import "./question-answer.css";
 
-export default function ({ click, title, answerCorrect }) {
+export default function ({ click, title, answerCorrect, clicked }) {
     return (
         <li
-            className={`book-item ${answerCorrect === true ? "correct" : ""} ${
-                answerCorrect === false ? "incorrect" : ""
+            className={`book-item ${answerCorrect === true && clicked ? "correct" : ""} ${
+                answerCorrect === false && clicked ? "incorrect" : ""
             }`}
             onClick={click}
         >
