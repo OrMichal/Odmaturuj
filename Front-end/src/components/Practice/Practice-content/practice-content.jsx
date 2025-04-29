@@ -1,9 +1,8 @@
 import PracticeQuestion from "../Practice-question/practice-question";
 
 
-export default function PracticeContent({ selectedEra }){
+export default function PracticeContent({ selectedEraId }){
     return(
-        
-        <PracticeQuestion era={selectedEra} />
+        <PracticeQuestion eraId={selectedEraId} />
     );
 }

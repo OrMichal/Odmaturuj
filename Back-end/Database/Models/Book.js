@@ -6,7 +6,8 @@ const bookSchema = new mongo.Schema({
     author_ids: Array,
     release_year: String,
     type: String,
-    motive: String
+    motive: String,
+    era_id: Number
 }, "books");
 
 const book = mongo.model("book", bookSchema);

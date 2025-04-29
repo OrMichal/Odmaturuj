@@ -16,9 +16,7 @@ export default function KnowledgeView() {
 
     let NavbarData = [];
     if(!EraLoading){
-        ErasQuery.forEach(e => {
-            NavbarData.push({ name: e.name, action: () => setActiveTab(e.name) });
-        });
+        ErasQuery.forEach(e => NavbarData.push({ name: e.name, id: e.id, action: () => setActiveTab(e.name) }));
     }
 
     return (
@@ -32,7 +30,7 @@ export default function KnowledgeView() {
                             <p>Vyberte si předmět a pusťte se do studia.</p>
                         </div>
                     :
-                        <PracticeContent selectedEra={activeTab} />
+                        <PracticeContent selectedEraId={NavbarData.find(n => n.name == activeTab).id}/>
                 }
             </div>
         </div>

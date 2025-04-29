@@ -1,0 +1,46 @@
+.book-item {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: var(--transition);
+    background-color: rgba(255, 255, 255, 0.05);
+    width: 70%;
+    color: var(--text);
+    text-align: center;
+}
+
+.book-item:hover {
+    background-color: var(--secondary);
+    color: white;
+    cursor: pointer;
+    width: 75%;
+}
+
+/* Stav správné odpovědi */
+.book-item.correct {
+    background-color: var(--success);
+    color: white;
+    animation: pulse 0.4s ease-in-out;
+}
+
+/* Stav špatné odpovědi */
+.book-item.incorrect {
+    background-color: var(--danger);
+    color: white;
+    animation: shake 0.4s ease-in-out;
+}
+
+/* Animace pro správnou odpověď */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Animace pro špatnou odpověď */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
