@@ -26,7 +26,7 @@ export default function App() {
   ];
 
   return (
-    <Router>
+    <Router basename='/Odmaturuj'>
       <MainNavbar data={NavbarData} themeAction={() => setDarkMode(!darkMode)} />
       <Routes>{AppRoutes}</Routes>
     </Router>
