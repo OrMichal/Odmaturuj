@@ -21,7 +21,7 @@ export default function KnowledgeView() {
 
     return (
         <div style={{width: "90%"}}>
-            {!EraLoading && <Navbar data={NavbarData} active={activeTab}/>}
+            {!EraLoading ? <Navbar data={NavbarData} active={activeTab}/> : <div>Načítání literárních období</div>}
             <div className="knowledge-container">
                 {activeTab == null 
                     ?
