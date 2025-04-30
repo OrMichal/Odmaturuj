@@ -1,5 +1,4 @@
 const mongo = require("mongoose");
-const { default: Stringifier_ } = require("postcss/lib/stringifier");
 
 const authorSchema = new mongo.Schema({
     id: Number,

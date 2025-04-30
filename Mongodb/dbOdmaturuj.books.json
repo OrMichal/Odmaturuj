@@ -9,7 +9,8 @@
   ],
   "release_year": 1878,
   "type": "básnická zbírka",
-  "motive": "kosmos, rozvoj přírodních věd a vztahy mezi lidmi a pravidly ve vesmíru"
+  "motive": "kosmos, rozvoj přírodních věd a vztahy mezi lidmi a pravidly ve vesmíru",
+  "era_id": 1
 },
 {
   "_id": {
@@ -22,7 +23,8 @@
   ],
   "release_year": 1868,
   "type": "básnická zbírka",
-  "motive": "pesimismus"
+  "motive": "pesimismus",
+  "era_id": 1
 },
 {
   "_id": {
@@ -35,7 +37,8 @@
   ],
   "release_year": 1857,
   "type": "básnická zbírka",
-  "motive": "pesimismus, pocit beznaděje"
+  "motive": "pesimismus, pocit beznaděje",
+  "era_id": 1
 },
 {
   "_id": {
@@ -48,7 +51,8 @@
   ],
   "release_year": 1861,
   "type": "próza",
-  "motive": "zakázaná láska na vesnici"
+  "motive": "zakázaná láska na vesnici",
+  "era_id": 1
 },
 {
   "_id": {
@@ -61,5 +65,6 @@
   ],
   "release_year": 1859,
   "type": "básnická zbírka",
-  "motive": "optimismus, radost"
+  "motive": "optimismus, radost",
+  "era_id": 1
 }]

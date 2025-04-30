@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongo = require("mongoose");
@@ -7,7 +8,7 @@ const EraController = require("./Controllers/EraController");
 const QuestionController = require("./Controllers/QuestionController");
 const AnswerController = require("./Controllers/AnswerController");
 
-mongo.connect("mongodb://localhost:27017/dbOdmaturuj")
+mongo.connect(process.env.MONGO_URI)
     .then(() => console.log("connected to mongo database"))
     .catch(err => console.error("error occured while connecting to mongo database: ", err));
 
@@ -22,4 +23,4 @@ App.use("/eras", EraController);
 App.use("/questions", QuestionController);
 App.use("/answers", AnswerController);
 
-App.listen(3000, () => console.log("hello on port: ", 3000));
+App.listen(10000, () => console.log("hello on port: ", 3000));
