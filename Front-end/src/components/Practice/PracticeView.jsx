@@ -3,13 +3,14 @@ import Navbar from "../nav-bar/navbar";
 import "./Practice-view.css";
 import { useState } from "react";
 import PracticeContent from "./Practice-content/practice-content";
+import httpsService from "../../SERVICES/http-service/https-service";
 
 export default function KnowledgeView() {
     const [activeTab, setActiveTab] = useState(null);
 
     const { data: ErasQuery, isLoading: EraLoading } = useQuery({
         queryKey: ["navbar eras"],
-        queryFn: () => fetch("http://localhost:3000/eras")
+        queryFn: () => fetch(httpsService.ApiUri + "/eras")
             .then(resp => resp.json())
             .catch(err => console.error(err))
     });

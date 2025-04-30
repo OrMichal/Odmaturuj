@@ -2,6 +2,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import "./practice-question.css";
 import QuestionAnswer from "./question-answer/question-answer";
 import { useState } from "react";
+import httpsService from "../../../SERVICES/http-service/https-service";
 
 export default function ({ eraId }) {
     const [correctAnsw, setCorrectAnsw] = useState(null);
@@ -9,13 +10,13 @@ export default function ({ eraId }) {
 
     const { data, isLoading, error, refetch } = useQuery({
         queryKey: ["question", eraId],
-        queryFn: () =>fetch(`http://localhost:3000/questions/books/${eraId}`)
+        queryFn: () =>fetch(httpsService.ApiUri + `/questions/books/${eraId}`)
             .then((res) => res.json()),
     });
 
     const AnswerSubmitter = useMutation({
         mutationKey: ["submitAnswBook"],
-        mutationFn: (data) => fetch("http://localhost:3000/answers/bookcheck", 
+        mutationFn: (data) => fetch(httpsService.ApiUri + "/answers/bookcheck", 
             { 
                 method: "POST", 
                 headers: { "Content-Type": "application/json" },
