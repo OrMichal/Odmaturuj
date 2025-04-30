@@ -23,4 +23,4 @@ App.use("/eras", EraController);
 App.use("/questions", QuestionController);
 App.use("/answers", AnswerController);
 
-App.listen(10000, () => console.log("hello on port: ", 3000));
+App.listen(3000, () => console.log("hello on port: ", 3000));
