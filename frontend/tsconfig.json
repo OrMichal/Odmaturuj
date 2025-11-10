@@ -1,0 +1,16 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "plugins": [
+      {
+        "name": "@vue/typescript-plugin",
+        "include": ["src/**/*.vue"]
+      }
+    ]
+  }
+}
