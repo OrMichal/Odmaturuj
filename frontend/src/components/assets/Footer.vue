@@ -7,6 +7,7 @@ import Logo from './Logo.vue';
 <template>
   <footer class="footer">
     <div class="wrapper">
+      <div class="content">
       <section class="logo-section">
         <Logo />
         <span class="subheading">easy matura</span>
@@ -22,6 +23,10 @@ import Logo from './Logo.vue';
         <section class="link-section">
         </section>
       </section>
+      </div>
+      <div class="content-footer">
+        &copy; Michal Orsah
+      </div>
     </div>
   </footer>
 </template>
@@ -37,13 +42,22 @@ import Logo from './Logo.vue';
     align-items: center;
   }
 
-  .wrapper {
+  .content {
     width: var(--content-width);
     box-sizing: border-box;
 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  .content-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 1.5rem;
+    font-weight: 600;
   }
 
   .logo-section {

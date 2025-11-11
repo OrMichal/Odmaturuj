@@ -14,8 +14,6 @@ import {useRoute} from 'vue-router';
   watch(() => route.fullPath, (newPath, oldPath) => {
     const activeRoute = newPath.split("/")[1];
     isActive.value = activeRoute == props.to.substring(1);
-    console.log(isActive.value);
-    console.log("route changed");
   })
 </script>
 
@@ -55,7 +53,7 @@ import {useRoute} from 'vue-router';
       background-position: -300px 0px;
     } to {
       background-position: 0px 0px;
-      color: var(--white);
+      color: var(--text-primary);
     }
   }
 </style>

@@ -86,11 +86,6 @@ const exams = [
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.exam-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-}
-
 .exam-header {
   display: flex;
   align-items: center;

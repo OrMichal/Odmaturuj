@@ -1,8 +1,12 @@
 <script setup lang="ts">
+import ContentSideNavigation from '../components/navigation/ContentSideNavigation.vue';
+
 </script>
 
 <template>
-  <span>authors!</span>
+  <div class="wrapper">
+    <ContentSideNavigation />
+  </div>
 </template>
 
 <style scoped>
