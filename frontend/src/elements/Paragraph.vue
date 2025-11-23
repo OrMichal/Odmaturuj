@@ -10,6 +10,9 @@
 <style scoped>
   p {
     all: unset;
-    font-size: 1.4rem;
+    width: 100%;
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    opacity: 0.8;
+    font-weight: 400;
   }
 </style>

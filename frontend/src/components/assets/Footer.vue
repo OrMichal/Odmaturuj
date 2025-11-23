@@ -8,21 +8,19 @@ import Logo from './Logo.vue';
   <footer class="footer">
     <div class="wrapper">
       <div class="content">
-      <section class="logo-section">
-        <Logo />
-        <span class="subheading">easy matura</span>
-      </section>
-      <section class="links">
-        <section class="link-section">
-          <SimpleTextLink to="/">Domů</SimpleTextLink>
-          <SimpleTextLink to="/authors">Autoři</SimpleTextLink>
-          <SimpleTextLink to="/art-movements">Umělecké směry</SimpleTextLink>
-          <SimpleTextLink to="/book-analysis">Rozbory knih</SimpleTextLink>
-          <SimpleTextLink to="/exercise">Cvičení</SimpleTextLink>
+        <section class="logo-section">
+          <Logo />
+          <span class="subheading">easy matura</span>
         </section>
-        <section class="link-section">
+        <section class="links">
+          <section class="link-section">
+            <SimpleTextLink to="/">Domů</SimpleTextLink>
+            <SimpleTextLink to="/authors">Autoři</SimpleTextLink>
+            <SimpleTextLink to="/art-movements">Umělecké směry</SimpleTextLink>
+            <SimpleTextLink to="/book-analysis">Rozbory knih</SimpleTextLink>
+            <SimpleTextLink to="/exercise">Cvičení</SimpleTextLink>
+          </section>
         </section>
-      </section>
       </div>
       <div class="content-footer">
         &copy; Michal Orsah
@@ -32,6 +30,11 @@ import Logo from './Logo.vue';
 </template>
 
 <style scoped>
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
   .footer {
     background-color: var(--primary-dark);
     box-sizing: border-box;
@@ -40,11 +43,14 @@ import Logo from './Logo.vue';
     display: flex;
     flex-direction: column;
     align-items: center;
+    container: footer-cnt / inline-size;
   }
 
   .content {
-    width: var(--content-width);
+    width: 100cqw;
+    max-width: var(--content-width);
     box-sizing: border-box;
+    padding: 0px 20px;
 
     display: flex;
     flex-direction: row;
@@ -80,5 +86,13 @@ import Logo from './Logo.vue';
     display: flex;
     flex-direction: column;
     gap: 10px;
+  }
+
+  @container footer-cnt (width < 500px) {
+    .content {
+      flex-direction: column;
+      align-items: start;
+      gap: 25px;
+    }
   }
 </style>

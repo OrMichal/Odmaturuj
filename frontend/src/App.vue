@@ -16,17 +16,20 @@ import Footer from './components/assets/Footer.vue';
 
 <style scoped>
   .wrapper {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100dvh;
     height: 100%;
   }
   .content-wrapper {
     box-sizing: border-box;
     padding: 50px 30px;
-    max-width: var(--content-width);
     width: 100%;
+    max-width: var(--content-width);
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 </style>

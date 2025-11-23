@@ -4,6 +4,7 @@ import InfoIconCard from '../components/cards/InfoIconCard.vue';
 import TimeCountdown from '../components/utils/TimeCountdown.vue';
 import Heading from '../elements/Heading.vue';
 import HeroSection from '../sections/Home/HeroSection.vue';
+import HighlightedSection from '../components/utils/HighlightedSection.vue';
 
 </script>
 
@@ -13,20 +14,20 @@ import HeroSection from '../sections/Home/HeroSection.vue';
     <TimeCountdown />
     <section class="benefits">
       <Heading>Proč používat právě Odmaturuj?</Heading>      
-      <div class="cards">
-        <InfoIconCard :icon="faBarsStaggered" heading="Vše podle CERMAT">
-          Všechno, co se může objevit u maturity, máte tady. Přehledně a lidsky vysvětleno.
-        </InfoIconCard>
-        <InfoIconCard :icon="faBolt" heading="Rychlé procvičování">
-          Krátká cvičení, která stihneš o přestávce nebo v tramvaji.
-        </InfoIconCard>
-        <InfoIconCard :icon="faBookBible" heading="Vše na jednom místě">
-          Literární rozbory i jazykové pojmy - jednoduše a srozumitelně.
-        </InfoIconCard>
-        <InfoIconCard :icon="faBrain" heading="Studujte chytře">
-          Zde máte vše v souvislostech a tudíž se to naučíte rychleji a efektivněji.
-        </InfoIconCard>
-      </div>
+        <HighlightedSection class="cards">
+          <InfoIconCard :icon="faBarsStaggered" heading="Vše podle CERMAT">
+            Všechno, co se může objevit u maturity, máte tady. Přehledně a lidsky vysvětleno.
+          </InfoIconCard>
+          <InfoIconCard :icon="faBolt" heading="Rychlé procvičování">
+            Krátká cvičení, která stihneš o přestávce nebo v tramvaji.
+          </InfoIconCard>
+          <InfoIconCard :icon="faBookBible" heading="Vše na jednom místě">
+            Literární rozbory i jazykové pojmy - jednoduše a srozumitelně.
+          </InfoIconCard>
+          <InfoIconCard :icon="faBrain" heading="Studujte chytře">
+            Zde máte vše v souvislostech a tudíž se to naučíte rychleji a efektivněji.
+          </InfoIconCard>
+        </HighlightedSection>
     </section>
   </div>
 </template>
@@ -34,6 +35,7 @@ import HeroSection from '../sections/Home/HeroSection.vue';
 <style scoped>
   .wrapper {
     width: 100%;
+    max-width: var(--content-width);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,7 +53,7 @@ import HeroSection from '../sections/Home/HeroSection.vue';
   section.benefits .cards {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(1fr));
     gap: 25px;
   }
 </style>

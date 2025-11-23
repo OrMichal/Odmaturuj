@@ -25,6 +25,8 @@ import SimpleLink from '../../components/links/SimpleLink.vue';
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    container: hero-sect / inline-size;
+    width: 100%;
   }
 
   .hero-heading {
@@ -39,5 +41,16 @@ import SimpleLink from '../../components/links/SimpleLink.vue';
     flex-direction: row;
     align-items: center;
     gap: 30px;
+  }
+
+  @container hero-sect (width < 1000px) {
+    .hero-links {
+      flex-direction: column;
+    }
+
+    .hero-links > * > * {
+      width: 100%;
+      align-self: stretch;
+    }
   }
 </style>
