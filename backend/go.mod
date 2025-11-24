@@ -1,6 +1,6 @@
 module backend
 
-go 1.25.3
+go 1.25
 
 require (
 	github.com/golang/snappy v1.0.0 // indirect
