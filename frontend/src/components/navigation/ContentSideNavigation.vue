@@ -31,7 +31,7 @@ const handleTouchMove = (event: TouchEvent) => {
   touchEndX.value = event.touches[0]?.clientX!;
 };
 
-const handleTouchEnd = (event: TouchEvent) => {
+const handleTouchEnd = (_: TouchEvent) => {
   const distance = touchEndX.value - touchStartX.value;
 
   if(touchStartX.value < 40 && distance > 20 && !isOpen.value) {

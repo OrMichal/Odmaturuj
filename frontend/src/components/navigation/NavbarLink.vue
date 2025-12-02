@@ -11,7 +11,7 @@ import {useRoute} from 'vue-router';
   const route = useRoute();
   const isActive = ref(route.fullPath.split("/")[1] == props.to.substring(1));
 
-  watch(() => route.fullPath, (newPath, oldPath) => {
+  watch(() => route.fullPath, (newPath, _) => {
     const activeRoute = newPath.split("/")[1];
     isActive.value = activeRoute == props.to.substring(1);
   })

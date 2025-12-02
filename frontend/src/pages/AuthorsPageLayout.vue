@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import {RouterView} from 'vue-router';
 import GroupedContentSideNavigation from '../components/navigation/GroupedContentSideNavigation.vue';
-import type {ISearchable} from '../interfaces/ISearchable';
+import type { IGroupedSearchable } from '../interfaces/IGroupedSearchable';
 import {useFetch} from '../composables/useFetch';
 import {SearchableFromAuthor, type IAuthor} from '../dto/Author';
 import {ref, watch} from 'vue';
 import {ApiUrl} from '../envs';
 
 const { data, error, loading } = useFetch<IAuthor[]>(`${ApiUrl}/authors`, "");
-const searchables = ref<ISearchable[] | null>(null);
+const searchables = ref<IGroupedSearchable[] | null>(null);
 
-watch(data, async (prev, curr) => {
+watch(data, async (_, __) => {
   if(data.value) {
     searchables.value = await Promise.all(data.value.map(d => SearchableFromAuthor(d)));
   }

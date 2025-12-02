@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import type {IAuthor} from '../../dto/Author';
-import Button from '../../elements/Button.vue';
 import Heading from '../../elements/Heading.vue';
 import Paragraph from '../../elements/Paragraph.vue';
 import ImportantLink from '../links/ImportantLink.vue';
 
-const props = defineProps<{
+defineProps<{
   author: IAuthor
 }>();
 </script>

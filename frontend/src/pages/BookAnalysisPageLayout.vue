@@ -10,7 +10,7 @@ import {GroupedSearchableFromBookAnalysis, type IBookAnalysis} from '../dto/Book
 const { data, error, loading } = useFetch<IBookAnalysis[]>(`${ApiUrl}/books_analysis`, "");
 const searchables = ref<IGroupedSearchable[] | null>(null);
 
-watch(data, async (prev, curr) => {
+watch(data, async (_, __) => {
   if(data.value) {
     searchables.value = await Promise.all(data.value.map(d => GroupedSearchableFromBookAnalysis(d)));
   }

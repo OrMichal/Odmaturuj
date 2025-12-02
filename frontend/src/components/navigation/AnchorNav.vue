@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import Heading from '../../elements/Heading.vue';
-import SubHeading from '../../elements/SubHeading.vue';
 import type {IAnchor} from '../../interfaces/IAnchor';
 
-  const props = defineProps<{
+  defineProps<{
     anchors: Array<IAnchor>
   }>();
 </script>

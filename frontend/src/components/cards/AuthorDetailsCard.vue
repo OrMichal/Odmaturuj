@@ -14,10 +14,16 @@ const { data, error, loading } = useFetch<IAuthor>(`${ApiUrl}/authors/${props.au
 </script>
 
 <template>
-  <RollDown :summary="`${data?.firstname} ${data?.middlename} ${data?.lastname}`">
+  <div v-if="loading">
+    načítání...
+  </div>
+  <div v-else-if="error">
+    nastala chyba: {{ error }}
+  </div>
+  <RollDown v-if="data" :summary="`${data.firstname} ${data.middlename} ${data.lastname}`">
     <div class="wrapper">
-      <List :items="data?.important_bullet_points!" />
-      <ArticleHeading heading="Životopis">{{ data?.long_biography }}</ArticleHeading>
+      <List :items="data.important_bullet_points!" />
+      <ArticleHeading heading="Životopis">{{ data.long_biography }}</ArticleHeading>
     </div>
   </RollDown> 
 </template>

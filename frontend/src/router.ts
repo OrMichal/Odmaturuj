@@ -1,4 +1,4 @@
-import { createMemoryHistory, createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "./pages/HomePage.vue";
 import AuthorsPageLayout from "./pages/AuthorsPageLayout.vue";
 import ArtMovementsPageLayout from "./pages/ArtMovementsPageLayout.vue";

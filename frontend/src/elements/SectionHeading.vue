@@ -2,7 +2,7 @@
 import HyperHeading from './HyperHeading.vue';
 import Paragraph from './Paragraph.vue';
 
-const props = defineProps<{
+defineProps<{
   heading: string
 }>();
 </script>

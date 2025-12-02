@@ -1,14 +1,11 @@
-
 <script setup lang="ts">
-import { ref, watch } from 'vue';
 import RollDown from '../../elements/RollDown.vue';
 
-const props = defineProps<{
+defineProps<{
   summary: string,
   opened: boolean
 }>();
 
-const open = ref(props.opened);
 </script>
 
 <template>

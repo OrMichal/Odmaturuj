@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Paragraph from './Paragraph.vue';
 
-  const props = defineProps<{
+  defineProps<{
     items: Array<string>
   }>();
 </script>

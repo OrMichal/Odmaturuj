@@ -4,7 +4,7 @@ import SearchBar from "../utils/SearchBar.vue";
 import type { IGroupedSearchable } from "../../interfaces/IGroupedSearchable";
 import SideBarLink from "./SideBarLink.vue";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
-import {faArrowRight, faCircleChevronRight, faEllipsisV} from "@fortawesome/free-solid-svg-icons";
+import {faCircleChevronRight} from "@fortawesome/free-solid-svg-icons";
 
 const searchQuery = ref("");
 const isOpen = ref(false);
@@ -42,9 +42,6 @@ const handleTouchMove = (event: TouchEvent) => {
 const handleTouchEnd = () => {
   const distance = touchEndX.value - touchStartX.value;
 
-  // Open only when:
-  // - swipe starts from left edge
-  // - swipe distance is long enough
   if (touchStartX.value < 40 && distance > 60 && !isOpen.value) {
     isOpen.value = true;
   }

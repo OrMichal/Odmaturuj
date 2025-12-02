@@ -3,7 +3,7 @@
 import Paragraph from '../../elements/Paragraph.vue';
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
-  const props = defineProps<{
+  defineProps<{
     icon: IconDefinition,
     heading: string
   }>();

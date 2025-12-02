@@ -4,7 +4,7 @@ import List from '../../elements/List.vue';
 import Paragraph from '../../elements/Paragraph.vue';
 import SubHeading from '../../elements/SubHeading.vue';
 
-const props = defineProps<{
+defineProps<{
   book: IBook
 }>();
 </script>

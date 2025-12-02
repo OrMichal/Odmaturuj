@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import SubHeading from './SubHeading.vue';
-const props = defineProps<{
+defineProps<{
   heading: string
 }>();
 </script>

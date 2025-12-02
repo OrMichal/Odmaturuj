@@ -2,7 +2,6 @@
 import {faBoltLightning, faClipboardList, faLightbulb} from '@fortawesome/free-solid-svg-icons';
 import InfoIconCard from '../../components/cards/InfoIconCard.vue';
 import SectionHeading from '../../elements/SectionHeading.vue';
-import SubHeading from '../../elements/SubHeading.vue';
 import ArticleHeading from '../../elements/ArticleHeading.vue';
 import HighlightedSection from '../../components/utils/HighlightedSection.vue';
 

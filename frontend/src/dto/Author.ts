@@ -1,6 +1,6 @@
 import {ApiUrl} from "../envs";
-import type {IGroupedSearchable} from "../interfaces/ISearchable";
 import type {IAuthorGroup} from "./AuthorGroup";
+import type { IGroupedSearchable } from "../interfaces/IGroupedSearchable";
 
 export type IAuthor = {
   _id: string,

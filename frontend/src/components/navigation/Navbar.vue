@@ -4,7 +4,7 @@ import Logo from "../assets/Logo.vue";
 import ImportantLink from "../links/ImportantLink.vue";
 import NavbarLink from "./NavbarLink.vue";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
-import {faBars, faCaretDown} from "@fortawesome/free-solid-svg-icons";
+import {faBars} from "@fortawesome/free-solid-svg-icons";
 
 const isOpen = ref(false);
 const toggle = () => (isOpen.value = !isOpen.value);
