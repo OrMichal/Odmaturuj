@@ -21,17 +21,18 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: start;
+  gap: 10px;
 }
 
 li {
   font-weight: 400;
   display: inline-flex;
-  align-items: center;
-  gap: 5px;
+  align-items: start;
+  gap: 10px;
 }
 
 li:before {
-  content: "- ";
-  font-size: 1.5rem;
+  content: "+";
+  font-size: 1.2rem;
 }
 </style>

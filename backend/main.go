@@ -35,6 +35,12 @@ func corsMiddleware(next http.Handler) http.Handler {
 func main() {
 	defer db.Disconnect()
 
+	port := os.Getenv("PORT")
+	if port == "" {
+		log.Println("Could not get PORT from environment vars")
+		port = "8080"
+	}
+
 	if err := godotenv.Load(".env"); err != nil {
 		log.Println("Warning: .env file not found, relying on OS environment", err)
 	}
@@ -60,11 +66,6 @@ func main() {
 
 	handler := corsMiddleware(r)
 
-	port := os.Getenv("PORT")
-	if port == "" {
-		log.Println("Could not get PORT from environment vars")
-		port = "8080"
-	}
 
 	log.Fatal(http.ListenAndServe(":"+port, handler))
 }

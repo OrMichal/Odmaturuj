@@ -4,7 +4,7 @@ import SearchBar from "../utils/SearchBar.vue";
 import type { IGroupedSearchable } from "../../interfaces/IGroupedSearchable";
 import SideBarLink from "./SideBarLink.vue";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
-import {faCircleChevronRight} from "@fortawesome/free-solid-svg-icons";
+import {faSquareCaretRight} from "@fortawesome/free-solid-svg-icons";
 
 const searchQuery = ref("");
 const isOpen = ref(false);
@@ -28,38 +28,19 @@ const filteredGroups = computed(() => {
   }, {});
 });
 
-const touchStartX = ref(0);
-const touchEndX = ref(0);
-
-const handleTouchStart = (event: TouchEvent) => {
-  touchStartX.value = event?.touches[0]?.clientX!;
-};
-
-const handleTouchMove = (event: TouchEvent) => {
-  touchEndX.value = event.touches[0]?.clientX!;
-};
-
-const handleTouchEnd = () => {
-  const distance = touchEndX.value - touchStartX.value;
-
-  if (touchStartX.value < 40 && distance > 60 && !isOpen.value) {
-    isOpen.value = true;
-  }
-};
-
 const close = () => (isOpen.value = false);
 </script>
 
 <template>
-  <div
-    class="swipe-area"
-    @touchstart="handleTouchStart"
-    @touchmove="handleTouchMove"
-    @touchend="handleTouchEnd"
-  >
-
-    <button class="hamburger" @click="isOpen = true">
-      <FontAwesomeIcon :icon="faCircleChevronRight" />
+  <div class="swipe-area">
+    <button 
+      class="hamburger" 
+      :class="{ open: isOpen }" 
+      @click="isOpen = !isOpen"
+      aria-label="Toggle menu"
+    >
+      <FontAwesomeIcon size="lg" :icon="faSquareCaretRight" />
+      <span>Menu</span>
     </button>
 
     <div v-if="isOpen" class="overlay" @click="close"></div>
@@ -85,7 +66,7 @@ const close = () => (isOpen.value = false);
           </SideBarLink>
         </div>
 
-        <div v-if="Object.keys(filteredGroups).length == 0" class="not-found">
+        <div v-if="Object.keys(filteredGroups).length === 0" class="not-found">
           Nepovedlo se najít žádné takové záznamy.
         </div>
       </section>
@@ -96,24 +77,45 @@ const close = () => (isOpen.value = false);
 <style scoped>
 .hamburger {
   display: none;
-  font-size: 2rem;
-  background: none;
+  font-size: 1.2rem;
+  background: var(--accent);
+  color: var(--text-primary);
   border: none;
-  color: var(--accent);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  z-index: 1001;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* OVERLAY */
+.hamburger:hover {
+  background: var(--accent-hover);
+  transform: scale(1.05);
+}
+
+.hamburger span {
+  font-weight: 500;
+}
+
+.hamburger.open {
+  background: var(--accent-active);
+}
+
+.hamburger.open .fa-icon {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
 .overlay {
   position: fixed;
   inset: 0;
-  background: #0008;
+  background: rgba(0,0,0,0.5);
   backdrop-filter: blur(2px);
   z-index: 1000;
 }
 
-/* BASE SIDEBAR */
 aside.wrapper {
   height: 100%;
   display: flex;
@@ -126,7 +128,6 @@ aside.wrapper {
   transition: transform 0.3s ease;
 }
 
-/* LINKS */
 section.links {
   display: flex;
   flex-direction: column;
@@ -150,10 +151,9 @@ section.links {
   padding: 5px;
 }
 
-/* MOBILE DRAWER */
 @media (max-width: 768px) {
   .hamburger {
-    display: block;
+    display: flex;
   }
 
   aside.wrapper {

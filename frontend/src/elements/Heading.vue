@@ -12,6 +12,6 @@
     all: unset;
     color: var(--accent);
     font-weight: 600;
-    font-size: 2.3rem;
+    font-size: clamp( 1.7rem, 2vw,2.3rem);
   }
 </style>

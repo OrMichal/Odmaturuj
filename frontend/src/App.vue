@@ -24,7 +24,7 @@ import Footer from './components/assets/Footer.vue';
   }
   .content-wrapper {
     box-sizing: border-box;
-    padding: 50px 30px;
+    padding: 20px 30px;
     width: 100%;
     max-width: var(--content-width);
     height: 100%;

@@ -27,8 +27,9 @@ const authors = computed(() => data.value?.filter(a => a._id != props.authorId))
 
 <style scoped>
 .authors {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 25px;
 }
+
 </style>

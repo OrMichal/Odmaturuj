@@ -13,15 +13,13 @@ const movs = computed(() => data.value?.map(d => ArtMovementToSearchable(d)));
 
 <template>
   <div class="wrapper">
-    <section class="sidebar">
       <div v-if="loading">loading...</div>
       <div v-else-if="error">error: {{ error }}</div>
       <div v-else-if="!data || !movs">could not get data</div>
-      <ContentSideNavigation v-else :data="movs" route-prefix="/art-movements" />
-    </section>
-    <section class="content">
-      <router-view />
-    </section>
+      <div v-else class="container">
+        <ContentSideNavigation  :data="movs" route-prefix="/art-movements" />
+        <router-view />
+      </div>
   </div>
 </template>
 
@@ -41,5 +39,18 @@ const movs = computed(() => data.value?.map(d => ArtMovementToSearchable(d)));
 
 .anchors {
   height: 100%;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+@media screen and (width < 800px) {
+  .container {
+    flex-direction: column;
+  }
 }
 </style>

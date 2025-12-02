@@ -37,8 +37,10 @@ import HighlightedSection from '../../components/utils/HighlightedSection.vue';
   }
 
   .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     gap: 25px;
   }
+
 </style>

@@ -2,7 +2,7 @@
   import MegaHeading from '../../elements/MegaHeading.vue';
   import Paragraph from '../../elements/Paragraph.vue';
   import ImportantLink from '../../components/links/ImportantLink.vue';
-import SimpleLink from '../../components/links/SimpleLink.vue';
+  import SimpleLink from '../../components/links/SimpleLink.vue';
 </script>
 
 <template>

@@ -22,8 +22,10 @@ watch(data, async (_, __) => {
   <div class="wrapper">
     <div v-if="loading">loading...</div>
     <div v-else-if="error">{{ error }}</div>
-    <GroupedContentSideNavigation route-prefix="/book-analysis" v-else-if="data && searchables" :data="searchables" />
-    <router-view />
+    <div v-else-if="data && searchables" class="container">
+      <GroupedContentSideNavigation route-prefix="/book-analysis" :data="searchables" />
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -36,4 +38,17 @@ watch(data, async (_, __) => {
     height: 100%;
   }
 
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  @media screen and (width < 800px) {
+    .container {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
 </style>

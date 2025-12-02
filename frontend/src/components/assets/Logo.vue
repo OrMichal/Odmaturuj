@@ -9,7 +9,7 @@
   .logo {
     all: unset;
     font-weight: 900;
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 3vw, 2.5rem);
     color: var(--accent);
   }
 </style>

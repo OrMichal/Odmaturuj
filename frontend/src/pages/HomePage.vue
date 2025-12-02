@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import {faBarsStaggered, faBolt, faBookBible, faBrain} from '@fortawesome/free-solid-svg-icons';
-import InfoIconCard from '../components/cards/InfoIconCard.vue';
-import TimeCountdown from '../components/utils/TimeCountdown.vue';
-import Heading from '../elements/Heading.vue';
-import HeroSection from '../sections/Home/HeroSection.vue';
-import HighlightedSection from '../components/utils/HighlightedSection.vue';
-
+  import {faBarsStaggered, faBolt, faBookBible, faBrain} from '@fortawesome/free-solid-svg-icons';
+  import InfoIconCard from '../components/cards/InfoIconCard.vue';
+  import TimeCountdown from '../components/utils/TimeCountdown.vue';
+  import Heading from '../elements/Heading.vue';
+  import HeroSection from '../sections/Home/HeroSection.vue';
+  import HighlightedSection from '../components/utils/HighlightedSection.vue';
 </script>
 
 <template>

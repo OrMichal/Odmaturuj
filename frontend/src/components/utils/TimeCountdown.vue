@@ -46,42 +46,50 @@ const exams = [
 </script>
 
 <template>
-  <section class="countdowns">
-    <div
-      v-for="exam in exams"
-      :key="exam.name"
-      class="exam-card"
-    >
-      <div class="exam-header">
-        <SubHeading>{{ exam.name }}</SubHeading>
-        <div class="date">cca. {{ exam.day }}.{{ exam.month }}.</div>
+  <div class="wrapper">
+    <section class="countdowns">
+      <div
+        v-for="exam in exams"
+        :key="exam.name"
+        class="exam-card"
+      >
+        <div class="exam-header">
+          <SubHeading>{{ exam.name }}</SubHeading>
+          <div class="date">cca. {{ exam.day }}.{{ exam.month }}.</div>
+        </div>
+        <div class="exam-body">
+          <span class="time-remaining">{{ CalcToDate(getNextExamDate(exam.month, exam.day)) }}</span>
+        </div>
+        <div class="progress-bar"></div>
       </div>
-      <div class="exam-body">
-        <span class="time-remaining">{{ CalcToDate(getNextExamDate(exam.month, exam.day)) }}</span>
-      </div>
-      <div class="progress-bar"></div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <style scoped>
+.wrapper {
+  width: 100%;
+  container: time-cnt / inline-size;
+}
+
 .countdowns {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-items: center;
   gap: 2rem;
-  padding: 2rem;
 }
 
 .exam-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   background: var(--background-alt, #1e1e2f);
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  padding: 1.5rem 2rem;
-  width: 280px;
+  box-sizing: border-box;
+  padding: 1.5rem 1rem;
+  width: 100%;
+  max-width: 350px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -90,24 +98,23 @@ const exams = [
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
 }
 
 .date {
-  font-size: 0.9rem;
+  font-size: clamp(0.9rem, 1vw, 1.3rem);
   color: var(--accent, #ffcc00);
   font-weight: 600;
 }
 
 .exam-body {
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1rem 0;
 }
 
 .time-remaining {
-  font-size: 1.6rem;
+  font-size: clamp(1.2rem, 2vw , 1.6rem);
   font-weight: 700;
   color: var(--text-primary, #fff);
   background-color: var(--accent, #ffcc00);
@@ -124,10 +131,9 @@ const exams = [
   margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
-  .exam-card {
-    width: 100%;
-    max-width: 320px;
+@container time-cnt (width < 700px) {
+  .exam-header {
+    flex-direction: column;
   }
 }
 </style>

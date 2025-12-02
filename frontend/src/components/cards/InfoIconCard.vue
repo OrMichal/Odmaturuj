@@ -38,18 +38,15 @@ import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 10px;
 
     font-weight: 100;
     box-sizing: border-box;
   }
 
-  .card-content *:is(p) {
-    padding-left: 25px;
-  }
-
   .card-content span {
     padding: 0px;
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 1.7vw,2rem);
     font-weight: 700;
     color: var(--accent);
   }

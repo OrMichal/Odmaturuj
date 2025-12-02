@@ -21,7 +21,7 @@
   padding: 4px 20px;
   background-color: var(--primary-light);
   color: hsl(from var(--white) h s calc(l - 20));
-  font-size: clamp(1rem, 1vw, 1.5rem);
+  font-size: clamp(1rem, 1vw, 1.4rem);
   font-weight: 400;
   border-radius: 8px;
   transition: 200ms ease;

@@ -25,8 +25,4 @@ defineProps<{
   color: var(--accent);
   font-weight: 500;
 }
-
-.section-wrapper > *:not(:first-child) {
-  padding: 0px 15px;
-}
 </style>

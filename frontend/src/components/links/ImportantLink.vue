@@ -18,7 +18,7 @@ defineProps({
 
 <style scoped>
   .link {
-    font-size: 1.4rem;
+    font-size: clamp(1.1rem, 1.7vw, 1.4rem);
     box-sizing: border-box;
     border-radius: 6px;
     padding: 2px 20px;
