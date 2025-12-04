@@ -6,6 +6,8 @@ import {useFetch} from '../composables/useFetch';
 import {SearchableFromAuthor, type IAuthor} from '../dto/Author';
 import {ref, watch} from 'vue';
 import {ApiUrl} from '../envs';
+import ErrorBox from '../components/utils/ErrorBox.vue';
+import LoadingPlaceholder from '../components/utils/LoadingPlaceholder.vue';
 
 const { data, error, loading } = useFetch<IAuthor[]>(`${ApiUrl}/authors`, "");
 const searchables = ref<IGroupedSearchable[] | null>(null);
@@ -20,8 +22,14 @@ watch(data, async (_, __) => {
 
 <template>
   <div class="wrapper">
-    <div v-if="loading">loading...</div>
-    <div v-else-if="error">{{ error }}</div>
+    <div v-if="loading">
+      <LoadingPlaceholder />
+    </div>
+    <div v-else-if="error">
+      <ErrorBox>
+        {{ error }}
+      </ErrorBox>
+    </div>
     <div v-else-if="data && searchables" class="container">
       <GroupedContentSideNavigation route-prefix="/authors" :data="searchables!" />
       <router-view />

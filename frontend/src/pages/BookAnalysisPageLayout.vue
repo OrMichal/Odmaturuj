@@ -6,6 +6,8 @@ import {ref, watch} from 'vue';
 import {ApiUrl} from '../envs';
 import type {IGroupedSearchable} from '../interfaces/IGroupedSearchable';
 import {GroupedSearchableFromBookAnalysis, type IBookAnalysis} from '../dto/BookAnalysis';
+import ErrorBox from '../components/utils/ErrorBox.vue';
+import LoadingPlaceholder from '../components/utils/LoadingPlaceholder.vue';
 
 const { data, error, loading } = useFetch<IBookAnalysis[]>(`${ApiUrl}/books_analysis`, "");
 const searchables = ref<IGroupedSearchable[] | null>(null);
@@ -20,9 +22,16 @@ watch(data, async (_, __) => {
 
 <template>
   <div class="wrapper">
-    <div v-if="loading">loading...</div>
-    <div v-else-if="error">{{ error }}</div>
-    <div v-else-if="data && searchables" class="container">
+    <div v-if="loading">
+      <LoadingPlaceholder />
+    </div>
+    <div v-else-if="error">
+      <ErrorBox>{{ error }}</ErrorBox>
+    </div>
+    <div v-else-if="!searchables">
+      <ErrorBox>Nastala chyba při formátování dat</ErrorBox>
+    </div>
+    <div v-else-if="data" class="container">
       <GroupedContentSideNavigation route-prefix="/book-analysis" :data="searchables" />
       <router-view />
     </div>

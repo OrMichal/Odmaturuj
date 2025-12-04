@@ -5,6 +5,8 @@ import ArticleHeading from '../../elements/ArticleHeading.vue';
 import List from '../../elements/List.vue';
 import RollDown from '../../elements/RollDown.vue';
 import {ApiUrl} from '../../envs';
+import LoadingPlaceholder from '../utils/LoadingPlaceholder.vue';
+import ErrorBox from '../utils/ErrorBox.vue';
 
 const props = defineProps<{
   authorId: string;
@@ -15,10 +17,10 @@ const { data, error, loading } = useFetch<IAuthor>(`${ApiUrl}/authors/${props.au
 
 <template>
   <div v-if="loading">
-    načítání...
+    <LoadingPlaceholder />
   </div>
   <div v-else-if="error">
-    nastala chyba: {{ error }}
+    <ErrorBox>{{ error }}</ErrorBox>
   </div>
   <RollDown v-if="data" :summary="`${data.firstname} ${data.middlename} ${data.lastname}`">
     <div class="wrapper">

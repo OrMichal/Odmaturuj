@@ -4,6 +4,8 @@ import AuthorCard from '../../components/cards/AuthorCard.vue';
 import {useFetch} from '../../composables/useFetch';
 import type {IAuthor} from '../../dto/Author';
 import {ApiUrl} from '../../envs';
+import LoadingPlaceholder from '../../components/utils/LoadingPlaceholder.vue';
+import ErrorBox from '../../components/utils/ErrorBox.vue';
 
 const props = defineProps<{
   groupId: string;
@@ -16,9 +18,19 @@ const authors = computed(() => data.value?.filter(a => a._id != props.authorId))
 
 <template>
   <div class="wrapper">
-    <div v-if="loading">loading...</div>
-    <div v-else-if="error">error: {{ error }}</div>
-    <div v-else-if="!data">could not get data</div>
+    <div v-if="loading">
+      <LoadingPlaceholder />
+    </div>
+    <div v-else-if="error">
+      <ErrorBox>
+        {{ error }}
+      </ErrorBox>
+    </div>
+    <div v-else-if="!data">
+      <ErrorBox>
+        Nastala chyba při formátování dat.
+      </ErrorBox>
+    </div>
     <div v-else class="authors">
       <AuthorCard v-for="author of authors" :author="author" />
     </div>

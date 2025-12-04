@@ -4,6 +4,8 @@ import ContentSideNavigation from '../components/navigation/ContentSideNavigatio
 import {useFetch} from '../composables/useFetch';
 import {ApiUrl} from '../envs';
 import {ArtMovementToSearchable, type IArtMovement} from '../dto/ArtMovement';
+import ErrorBox from '../components/utils/ErrorBox.vue';
+import LoadingPlaceholder from '../components/utils/LoadingPlaceholder.vue';
 
 const { data, error, loading } = useFetch<IArtMovement[]>(`${ApiUrl}/art_movements`, `all art movements`);
 
@@ -13,9 +15,19 @@ const movs = computed(() => data.value?.map(d => ArtMovementToSearchable(d)));
 
 <template>
   <div class="wrapper">
-      <div v-if="loading">loading...</div>
-      <div v-else-if="error">error: {{ error }}</div>
-      <div v-else-if="!data || !movs">could not get data</div>
+      <div v-if="loading">
+        <LoadingPlaceholder />
+      </div>
+      <div v-else-if="error">
+        <ErrorBox>
+          {{ error }}
+        </ErrorBox>
+      </div>
+      <div v-else-if="!data || !movs">
+        <ErrorBox>
+          Nastala chyba při formátování dat
+        </ErrorBox>
+      </div>
       <div v-else class="container">
         <ContentSideNavigation  :data="movs" route-prefix="/art-movements" />
         <router-view />

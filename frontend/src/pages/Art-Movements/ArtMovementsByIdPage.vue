@@ -15,6 +15,8 @@ import Quote from '../../elements/Quote.vue';
 import BreakLine from '../../elements/BreakLine.vue';
 import AnchorNav from '../../components/navigation/AnchorNav.vue';
 import type {IAnchor} from '../../interfaces/IAnchor';
+import ErrorBox from '../../components/utils/ErrorBox.vue';
+import LoadingPlaceholder from '../../components/utils/LoadingPlaceholder.vue';
 
   const route = useRoute();
   let { data: movement, loading: loading_movement, error: error_movement } = useFetch<IArtMovement>(`${ApiUrl}/art_movements/${route.params.id}`, `movement ${route.params.id} data`);
@@ -44,9 +46,19 @@ import type {IAnchor} from '../../interfaces/IAnchor';
 
 <template>
   <section class="container">
-    <div v-if="loading_movement">loading...</div>
-    <div v-else-if="error_movement">error: {{ error_movement }}</div>
-    <div v-else-if="!movement">could not get movement data</div>
+    <div v-if="loading_movement">
+      <LoadingPlaceholder />
+    </div>
+    <div v-else-if="error_movement">
+      <ErrorBox>
+        {{ error_movement }}
+      </ErrorBox>
+    </div>
+    <div v-else-if="!movement">
+      <ErrorBox>
+        Nastala chyba při formátování dat
+      </ErrorBox>
+    </div>
     <section class="wrapper"> 
       <SectionHeading :heading="movement?.name!">{{ movement?.timespan }}</SectionHeading>
       <ArticleHeading heading="Hlavní znaky" id="main-signs">

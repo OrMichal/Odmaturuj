@@ -13,6 +13,8 @@ import List from '../../elements/List.vue';
 import HighlightedSection from '../../components/utils/HighlightedSection.vue';
 import Paragraph from '../../elements/Paragraph.vue';
 import BreakLine from '../../elements/BreakLine.vue';
+import ErrorBox from '../../components/utils/ErrorBox.vue';
+import LoadingPlaceholder from '../../components/utils/LoadingPlaceholder.vue';
 
 const route = useRoute();
 
@@ -38,9 +40,17 @@ const anchors: IAnchor[] = [
 </script>
 
 <template>
-  <div v-if="loading">loading</div>
-  <div v-else-if="error">error: {{ error }}</div>
-  <div v-else-if="!data">could not get data</div>
+  <div v-if="loading">
+    <LoadingPlaceholder />
+  </div>
+  <div v-else-if="error">
+    <ErrorBox>{{ error }}</ErrorBox>
+  </div>
+  <div v-else-if="!data">
+    <ErrorBox>
+      Nastala chyba při formátování dat
+    </ErrorBox>
+  </div>
   <section v-else class="container">
     <section class="wrapper">
       <SectionHeading :heading="data.name">{{ data.release_year }}</SectionHeading>

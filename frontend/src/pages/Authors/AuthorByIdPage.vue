@@ -15,6 +15,8 @@ import AuthorComrades from '../../sections/Authors/AuthorComrades.vue';
 import type {IAnchor} from '../../interfaces/IAnchor';
 import AnchorNav from '../../components/navigation/AnchorNav.vue';
 import BreakLine from '../../elements/BreakLine.vue';
+import ErrorBox from '../../components/utils/ErrorBox.vue';
+import LoadingPlaceholder from '../../components/utils/LoadingPlaceholder.vue';
 
 const route = useRoute();
 const Id = computed(() => route.params.id);
@@ -38,13 +40,18 @@ const anchors: Array<IAnchor> = [
 
 <template>
   <div v-if="loading || loading_books" class="error">
-    loading...
+    <LoadingPlaceholder />
   </div>
   <div v-else-if="error || error_books" class="error">
-    <span>error: {{ error || error_books }}</span>
+    <ErrorBox>
+      {{ error }}
+      {{ error_books }}
+    </ErrorBox>
   </div>
   <div v-else-if="!author || !books">
-    <span>Nepovedlo se získat informace o tomto autorovi.</span>
+    <ErrorBox>
+      Nepovedlo se získat informace o tomto autorovi.
+    </ErrorBox>
   </div>
 
   <section v-else class="container">
