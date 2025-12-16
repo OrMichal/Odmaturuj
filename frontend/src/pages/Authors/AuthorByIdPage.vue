@@ -81,7 +81,7 @@ const anchors: Array<IAnchor> = [
         </div>
       </ArticleHeading>
       <BreakLine />
-      <ArticleHeading heading="Další autoři" id="other-authors">
+      <ArticleHeading heading="Další autoři z tohoto období" id="other-authors">
         <AuthorComrades v-for="groupid of author.group_ids" :group-id="groupid" :author-id="author._id" />
       </ArticleHeading>
     </section>

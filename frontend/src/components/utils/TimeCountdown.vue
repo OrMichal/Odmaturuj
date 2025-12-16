@@ -3,18 +3,24 @@ import SubHeading from "../../elements/SubHeading.vue";
 
 function getNextExamDate(month: number, day: number): string {
   const today = new Date();
-  const currentYear = today.getFullYear();
-  const thisYearExam = new Date(currentYear, month - 1, day);
-  const examYear = today > thisYearExam ? currentYear + 1 : currentYear;
+  const year = today.getFullYear();
 
-  return `${examYear}${String(month).padStart(2, "0")}${String(day).padStart(2, "0")}`;
+  const examThisYear = new Date(year, month - 1, day);
+
+  const examYear = today.getTime() > examThisYear.getTime() ? year + 1 : year;
+
+  const m = String(month).padStart(2, "0");
+  const d = String(day).padStart(2, "0");
+
+  return `${examYear}${m}${d}`;
 }
 
 function CalcToDate(date: string): string {
   const today = new Date();
-  const year = parseInt(date.slice(0, 4));
-  const month = parseInt(date.slice(4, 6)) - 1;
-  const day = parseInt(date.slice(6, 8));
+  const year = Number(date.slice(0, 4));
+  const month = Number(date.slice(4, 6)) - 1;
+  const day = Number(date.slice(6, 8));
+
   const targetDate = new Date(year, month, day);
 
   today.setHours(0, 0, 0, 0);
@@ -23,17 +29,24 @@ function CalcToDate(date: string): string {
   const diffMs = targetDate.getTime() - today.getTime();
   if (diffMs <= 0) return "Už to nastalo!";
 
-  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-  const months = Math.floor(diffDays / 30.44);
-  const weeks = Math.floor((diffDays % 30.44) / 7);
-  const days = Math.floor(diffDays % 7);
+  const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
 
-  if (months > 0)
-    return `${months} ${months > 4 ? "měsíců" : months > 1 ? "měsíce" : "měsíc"}`;
-  if (weeks > 0)
-    return `${weeks} ${weeks > 4 ? "týdnů" : weeks > 1 ? "týdny" : "týden"}`;
-  if (days > 0)
-    return `${days} ${days > 4 ? "dní" : days > 1 ? "dny" : "den"}`;
+  const DAYS_IN_MONTH = 30.4375;
+  const DAYS_IN_WEEK = 7;
+
+  const months = Math.floor(diffDays / DAYS_IN_MONTH);
+  const weeks = Math.floor((diffDays % DAYS_IN_MONTH) / DAYS_IN_WEEK);
+  const days = diffDays % DAYS_IN_WEEK;
+
+  const plural = (n: number, one: string, few: string, many: string) => {
+    if (n === 1) return one;
+    if (n >= 2 && n <= 4) return few;
+    return many;
+  };
+
+  if (months > 0) return `${months} ${plural(months, "měsíc", "měsíce", "měsíců")}`;
+  if (weeks > 0) return `${weeks} ${plural(weeks, "týden", "týdny", "týdnů")}`;
+  if (days > 0) return `${days} ${plural(days, "den", "dny", "dní")}`;
 
   return "Zítra!";
 }
@@ -77,7 +90,6 @@ const exams = [
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   justify-items: center;
-  gap: 2rem;
 }
 
 .exam-card {

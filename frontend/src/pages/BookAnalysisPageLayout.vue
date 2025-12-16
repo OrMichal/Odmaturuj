@@ -21,17 +21,17 @@ watch(data, async (_, __) => {
 </script>
 
 <template>
-  <div class="wrapper">
-    <div v-if="loading">
-      <LoadingPlaceholder />
-    </div>
-    <div v-else-if="error">
-      <ErrorBox>{{ error }}</ErrorBox>
-    </div>
-    <div v-else-if="!searchables">
-      <ErrorBox>Nastala chyba při formátování dat</ErrorBox>
-    </div>
-    <div v-else-if="data" class="container">
+  <div v-if="loading">
+    <LoadingPlaceholder />
+  </div>
+  <div v-else-if="error">
+    <ErrorBox>{{ error }}</ErrorBox>
+  </div>
+  <div v-else-if="!searchables">
+    <ErrorBox>Nastala chyba při formátování dat</ErrorBox>
+  </div>
+  <div v-else-if="data" class="wrapper">
+    <div class="container">
       <GroupedContentSideNavigation route-prefix="/book-analysis" :data="searchables" />
       <router-view />
     </div>

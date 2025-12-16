@@ -14,24 +14,24 @@ const movs = computed(() => data.value?.map(d => ArtMovementToSearchable(d)));
 </script>
 
 <template>
-  <div class="wrapper">
-      <div v-if="loading">
-        <LoadingPlaceholder />
-      </div>
-      <div v-else-if="error">
-        <ErrorBox>
-          {{ error }}
-        </ErrorBox>
-      </div>
-      <div v-else-if="!data || !movs">
-        <ErrorBox>
-          Nastala chyba při formátování dat
-        </ErrorBox>
-      </div>
-      <div v-else class="container">
-        <ContentSideNavigation  :data="movs" route-prefix="/art-movements" />
-        <router-view />
-      </div>
+  <div v-if="loading">
+    <LoadingPlaceholder />
+  </div>
+  <div v-else-if="error">
+    <ErrorBox>
+      {{ error }}
+    </ErrorBox>
+  </div>
+  <div v-else-if="!data || !movs">
+    <ErrorBox>
+      Nastala chyba při formátování dat
+    </ErrorBox>
+  </div>
+  <div v-else class="wrapper">
+    <div class="container">
+      <ContentSideNavigation  :data="movs" route-prefix="/art-movements" />
+      <router-view />
+    </div>
   </div>
 </template>
 

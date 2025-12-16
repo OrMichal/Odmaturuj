@@ -12,7 +12,7 @@ section {
   width: 100%;
   box-sizing: border-box;
   padding: 8px;
-  border: 2px solid var(--accent);
+  border: 1px solid var(--accent);
   border-radius: 10px;
 
 }

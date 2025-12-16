@@ -21,18 +21,11 @@ import LoadingPlaceholder from '../../components/utils/LoadingPlaceholder.vue';
   const route = useRoute();
   let { data: movement, loading: loading_movement, error: error_movement } = useFetch<IArtMovement>(`${ApiUrl}/art_movements/${route.params.id}`, `movement ${route.params.id} data`);
   let { data: authors, loading: loading_authors, error: error_authors } = useFetch<IAuthor[]>(`${ApiUrl}/art_movements/${route.params.id}/authors`, `movement ${route.params.id} authors`);
+
   watch(() => route.params.id, () => {
-    ({ data: movement, loading: loading_movement, error: error_movement } = 
-      useFetch<IArtMovement>(
-        `${ApiUrl}/art_movements/${route.params.id}`, 
-        `movement ${route.params.id} data`
-      ));
-    ({ data: authors, loading: loading_authors, error: error_authors } = 
-      useFetch<IAuthor[]>(
-        `${ApiUrl}/art_movements/${route.params.id}/authors`, 
-        `movement ${route.params.id} authors`
-      ));
-  });
+    ({ data: movement, loading: loading_movement, error: error_movement } = useFetch<IArtMovement>(`${ApiUrl}/art_movements/${route.params.id}`, `movement ${route.params.id} data`));
+    ({ data: authors, loading: loading_authors, error: error_authors } = useFetch<IAuthor[]>(`${ApiUrl}/art_movements/${route.params.id}/authors`, `movement ${route.params.id} authors`));
+  }, { immediate: true });
 
   const anchors: IAnchor[] = [
     { id: "main-signs", name: "Hlavní znaky" },

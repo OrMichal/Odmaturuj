@@ -10,7 +10,7 @@
   --primary-light-dark: hsl(from var(--primary) h s calc(l - 2));
   --primary-hover: hsla(from var(--primary) h s l / 0.9);
 
-  --content-width: 1600px;
+  --content-width: 1300px;
 
   background-color: var(--primary);
   color: var(--white);

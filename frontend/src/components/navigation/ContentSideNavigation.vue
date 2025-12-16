@@ -85,6 +85,7 @@ aside.wrapper {
   gap: 25px;
   box-sizing: border-box;
   padding-right: 40px;
+  max-width: 30rem;
   border-right: 1px solid #ffffff20;
   background: var(--background);
   transition: transform 0.3s ease;
@@ -93,7 +94,7 @@ aside.wrapper {
 section.links {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 10px;
 }
 
 .group {

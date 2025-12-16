@@ -40,6 +40,7 @@
   max-width: 600px;
   background: var(--primary-light-dark);
   border-radius: 12px;
+  box-sizing: border-box;
   padding: 1.5rem 2rem;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
   color: var(--white);

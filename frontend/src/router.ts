@@ -10,6 +10,7 @@ import ArtMovementsRootPage from "./pages/Art-Movements/ArtMovementsRootPage.vue
 import ArtMovementsByIdPage from "./pages/Art-Movements/ArtMovementsByIdPage.vue";
 import BookAnalysisRootPage from "./pages/Book-analysis/BookAnalysisRootPage.vue";
 import BookAnalysisByIdPage from "./pages/Book-analysis/BookAnalysisByIdPage.vue";
+import ExerciseAuthorsIndexPage from "./pages/Exercise/Authors/ExerciseAuthorsIndexPage.vue";
 
 
 const routes = [
@@ -37,7 +38,13 @@ const routes = [
       { path: ":id", component: BookAnalysisByIdPage },
     ]
   },
-  { path: "/exercise", component: ExercisePage }
+  { 
+    path: "/exercise", 
+    children: [
+      { path: "", component: ExercisePage },
+      { path: "authors", component: ExerciseAuthorsIndexPage }
+    ]
+  }
 ];
 
 export const router = createRouter({
